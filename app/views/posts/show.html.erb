@@ -19,9 +19,10 @@
 
 <div id="comments">
   <h2><%= @post.comments.count %> Comments</h2>
-  <%= render @post.comments %>
-
+    <%= render @post.comments %>
+  <% if user_signed_in? && @post.user == current_user %>
   <h3>Add a comment</h3>
-  <%= render "comments/form" %>
+    <%= render "comments/form" %>
+  <% end %>
 </div>
 </div>

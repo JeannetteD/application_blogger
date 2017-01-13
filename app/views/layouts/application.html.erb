@@ -18,6 +18,13 @@
           <%= image_tag "lotus2.png" %>
           <% end %>
       </div>
+
+      <% if !current_user.nil? %>
+      <ul>
+        <li>Welcome, <strong><%=current_user.email%></strong>!</li>
+      </ul>
+      <% end %>
+
       <ul>
         <li class="category">Website</li>
         <li><%= link_to "Blog", root_path%></li>
