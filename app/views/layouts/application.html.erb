@@ -6,9 +6,9 @@
     <title>Application Blogger</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -18,6 +18,13 @@
           <%= image_tag "lotus2.png" %>
           <% end %>
       </div>
+
+      <% if !current_user.nil? %>
+      <ul>
+        <li>Welcome, <strong><%=current_user.email%></strong>!</li>
+      </ul>
+      <% end %>
+
       <ul>
         <li class="category">Website</li>
         <li><%= link_to "Blog", root_path%></li>
@@ -25,8 +32,9 @@
       </ul>
       <ul>
         <li class="category">Social</li>
-        <li><a href="https://github.com/JeannetteD"></a>Github</li>
-        <li><a href="https://www.linkedin.com/in/jeannette-dariano"></a>LinkedIn</li>
+        <li><a href="https://github.com/JeannetteD">Github</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/jeannette-dariano">LinkedIn</a></li>
       </ul>
       <ul>
         <li class="category">Sign Up</li>
