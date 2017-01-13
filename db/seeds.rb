@@ -10,3 +10,5 @@ user_2 = User.create({email: "user2@user.com", password: "password", password_co
 user_3 = User.create({email: "user3@user.com", password: "password", password_confirmation: "password" })
 
 user_1.posts.create(title: 'Post 1', body: "This is a great post about dolphins.")
+user_2.posts.create(title: 'Post 2', body: "This is a great post about cats.")
+user_3.posts.create(title: 'Post 3', body: "This is a great post about dogs.")
