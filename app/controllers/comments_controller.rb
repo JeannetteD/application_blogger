@@ -12,10 +12,20 @@ class CommentsController < ApplicationController
 
   def destroy
 		@post = Post.find(params[:post_id])
-		@comment = @post.comments.find(params[:id])
-		@comment.destroy
+		# @comment = @post.comments.find(params[:id])
+		# @comment.destroy
+    #
+		# redirect_to post_path(@post)
 
-		redirect_to post_path(@post)
+    @comment = current_user.comments.where(params[:id]).first
+    if @comment
+      @comment.destroy
+      flash[:notice] = "Comment deleted"
+      redirect_to post_path(@post)
+    else
+      flash[:error] = "Not authorized to edit comment"
+      redirect_to post_path(@post)
+    end
 	end
 
   private
